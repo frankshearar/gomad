@@ -20,12 +20,25 @@ func (m Just) Generate(rand *rand.Rand, size int) reflect.Value {
 // quick can't generate test cases for a Value. These tests thus use int values,
 // purely so we can use quick. Imagine that the tests generated random arbitrary
 // values!
-func TestBind(t *testing.T) {
+func TestJustThenBindOperatesOnJust(t *testing.T) {
 	f := func(v int) Maybe {
 		return Just{v * 2}
 	}
 	g := func(v int) Maybe {
 		return Just{v}.Bind(func (x Value) Maybe { return Just{x.(int) * 2}})
+	}
+
+	if err := quick.CheckEqual(f, g, nil); err != nil {
+		t.Error(err)
+	}
+}
+
+func TestNothingThenBindReturnsNothing(t *testing.T) {
+	f := func(v int) Maybe {
+		return Nothing{}
+	}
+	g := func(v int) Maybe {
+		return Nothing{}.Bind(func (x Value) Maybe { return Just{x.(int) * 2}})
 	}
 
 	if err := quick.CheckEqual(f, g, nil); err != nil {
