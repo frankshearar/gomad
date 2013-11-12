@@ -11,7 +11,7 @@ type Maybe interface {
 
 	// Otherwise returns the receiver's Value if the receiver computation
 	// succeeded, or otherwise v.
-	// Otherwise(v Value) Value
+	Otherwise(v Value) Value
 }
 
 // Nothing represents a failed computation
@@ -19,6 +19,10 @@ type Nothing struct{}
 
 func (n Nothing) Bind(f func(v Value) Maybe) Maybe {
 	return n
+}
+
+func (n Nothing) Otherwise(v Value) Value {
+	return v
 }
 
 // Just represents a computation that has succeeded, or at least
@@ -29,4 +33,8 @@ type Just struct {
 
 func (j Just) Bind(f func(v Value) Maybe) Maybe {
 	return f(j.Value)
+}
+
+func (j Just) Otherwise(v Value) Value {
+	return j.Value
 }

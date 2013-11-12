@@ -32,3 +32,29 @@ func TestBind(t *testing.T) {
 		t.Error(err)
 	}
 }
+
+func TestJustOtherwiseReturnsOtherwise(t *testing.T) {
+	answer := 22
+	f := func(v int) Value {
+		return answer
+	}
+	g := func(v int) Value {
+		return Just{answer}.Otherwise(v)
+	}
+	if err := quick.CheckEqual(f, g, nil); err != nil {
+		t.Error(err)
+	}
+}
+
+
+func TestNothingOtherwiseReturnsOtherwise(t *testing.T) {
+	f := func(v int) Value {
+		return v
+	}
+	g := func(v int) Value {
+		return Nothing{}.Otherwise(v)
+	}
+	if err := quick.CheckEqual(f, g, nil); err != nil {
+		t.Error(err)
+	}
+}
