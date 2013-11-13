@@ -39,6 +39,8 @@ func (j Just) Otherwise(v int) int {
 }
 ````
 
+[![Build Status](https://secure.travis-ci.org/frankshearar/gomad.png?branch=master)](http://travis-ci.org/frankshearar/gomad)
+
 
 Licence
 -------
