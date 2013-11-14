@@ -8,4 +8,4 @@ secure: "D0/cqGojYC1YfCg5qv/m6FKBQFaSpcMcIuV8upA8lszTWljoa9U/PzrTfyGGJONJD7BgyP3
 script:
   - go get github.com/axw/gocov/gocov
   - go get github.com/mattn/goveralls
-  - goveralls -v $COVERALLS_TOKEN
+  - bin/goveralls -v $COVERALLS_TOKEN
