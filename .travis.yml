@@ -1,7 +1,11 @@
 language: go
 go:
- - 1.1
- - release
+  - 1.1
+  - release
+
+secure: "D0/cqGojYC1YfCg5qv/m6FKBQFaSpcMcIuV8upA8lszTWljoa9U/PzrTfyGGJONJD7BgyP3szNeZBkc5+MqWjVvsOe4DEVowMh4TzaboiagwIIpv0OIH0wm7nUYrZ2N5TNmWPs0RAmqsKGB6uulZt5BHWjLhYQ50KJmqcYA7qfo="
 
 script:
- - go test -v
+  - go get github.com/axw/gocov/gocov
+  - go get github.com/mattn/goveralls
+  - goveralls -v $COVERALLS_TOKEN

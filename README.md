@@ -39,7 +39,7 @@ func (j Just) Otherwise(v int) int {
 }
 ````
 
-[![Build Status](https://secure.travis-ci.org/frankshearar/gomad.png?branch=master)](http://travis-ci.org/frankshearar/gomad)
+[![Build Status](https://secure.travis-ci.org/frankshearar/gomad.png?branch=master)](http://travis-ci.org/frankshearar/gomad) [![Coverage Status](https://coveralls.io/repos/frankshearar/gomad/badge.png?branch=master)](https://coveralls.io/r/frankshearar/gomad)
 
 
 Licence
