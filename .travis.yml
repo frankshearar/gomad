@@ -6,7 +6,4 @@ go:
 secure: "D0/cqGojYC1YfCg5qv/m6FKBQFaSpcMcIuV8upA8lszTWljoa9U/PzrTfyGGJONJD7BgyP3szNeZBkc5+MqWjVvsOe4DEVowMh4TzaboiagwIIpv0OIH0wm7nUYrZ2N5TNmWPs0RAmqsKGB6uulZt5BHWjLhYQ50KJmqcYA7qfo="
 
 script:
-  - go get github.com/axw/gocov/gocov
-  - go get github.com/mattn/goveralls
-  - export PATH=${GOPATH//://bin:}/bin:PATH
-  - goveralls -v -service travis-ci.org $COVERALLS_TOKEN
+  - go test -v
